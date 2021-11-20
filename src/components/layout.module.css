@@ -1,0 +1,31 @@
+.container {
+    margin: 0 auto;
+    max-width: 960px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.heading {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: rgb(4, 130, 139);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+.nav-link-item {
+    padding-right: 2rem;
+}
+
+.nav-link-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgb(2, 21, 22);
+}
