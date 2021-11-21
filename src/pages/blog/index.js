@@ -33,6 +33,11 @@ export const query = graphql`
                 frontmatter {
                     title
                     date(formatString: "MMMM DD, YYYY")
+                    hero_image {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
                 }
                 id
                 body
