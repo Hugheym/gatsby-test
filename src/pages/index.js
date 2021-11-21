@@ -11,7 +11,7 @@ const IndexPage = () => {
       <p>Now go build something great.</p>
       <StaticImage
         alt="Clifford, a reddish-brown pitbull, posing on a couch and looking stoically at the camera"
-        src="https://pbs.twimg.com/media/E1oMV3QVgAIr1NT?format=jpg&name=large"
+        src="https://discovery.sndimg.com/content/dam/images/discovery/fullset/2020/3/16/babypanda2_getty.jpg.rend.hgtvcom.966.644.suffix/1584396557688.jpeg"
       />
     </Layout>
   )
