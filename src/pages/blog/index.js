@@ -3,18 +3,19 @@ import { graphql } from 'gatsby';
 import Layout from '../../components/layout';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Box, Badge } from '@chakra-ui/react';
+import { Box, Badge, SimpleGrid  } from '@chakra-ui/react';
 import { Link } from 'gatsby';
-const BlogPage = ({ data }) => {
+const BlogPage = ({location, data }) => {
     // console.log(data);
     // const image = getImage(data.allMdx.frontmatter.hero_image);
     return (
-        <Layout pageTitle="Blog">
+        <Layout pageTitle="Blog" location={location}>
             <h1>Blog</h1>
-            <ul>
+            <SimpleGrid columns={[1, 2]} spacing={8}>
                 {
                     data.allMdx.nodes.map(node => (
-                        <Box maxW="sm" borderWidth="1px" borderRadius="lg" key={node.id} margin="1em" overflow="hidden">
+                        // card for each blog post with shadow and rounded corners
+                        <Box maxW="sm" borderWidth="1px" borderRadius="lg" key={node.id} margin="1em" overflow="hidden" boxShadow="lg">
                             <GatsbyImage image={getImage(node.frontmatter.hero_image)} alt={node.frontmatter.hero_image_alt} />
                             <Box p="6">
                             <Box display="flex" alignItems="baseline">
@@ -47,12 +48,19 @@ const BlogPage = ({ data }) => {
                                 {node.frontmatter.title}
                                 </Link>
                             </Box>
-                            <MDXRenderer>{node.body}</MDXRenderer>
+                            {/* add wavy squiggle separating title and body */}
+                            <hr />
+
+                            {/* wrap MDX in padded box with squiggly line*/}
+                            <Box mt="2" p="4">
+
+                                <MDXRenderer>{node.body}</MDXRenderer>
+                            </Box>
                             </Box>
                         </Box>
                     ))
                 }
-            </ul>
+            </SimpleGrid>
         </Layout>
     );
 };

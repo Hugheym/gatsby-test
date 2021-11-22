@@ -3,12 +3,12 @@ import Layout from '../../components/layout';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-const BlogPost = ({ data }) => {
+const BlogPost = ({ location, data }) => {
     const image = getImage(data.mdx.frontmatter.hero_image);
     console.log(data);
     const post = data.mdx;
     return (
-        <Layout pageTitle={post.frontmatter.title}>
+        <Layout pageTitle={post.frontmatter.title} location={location}>
             <h1>{post.frontmatter.title}</h1>
             <p>Posted: {post.frontmatter.date}</p>
             <GatsbyImage image={image} alt={data.mdx.frontmatter.hero_image_alt} />
