@@ -24,6 +24,7 @@
     Animated cartoon design 2d button 
 */
 .nav-link-item {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,15 +32,57 @@
     border-radius: 0.5rem;
     font-size: 1rem;
     font-weight: 500;
-    color: rgb(4, 130, 139);
-    background-color: rgb(196, 231, 255);
+    /* color: rgb(4, 130, 139); */
+    /* background-color: rgb(196, 231, 255); */
     transition: all 0.3s ease-in-out;
 }
-.nav-link-item:hover {
-    background-color: rgb(4, 130, 139);
-    color: rgb(255, 255, 255);
+
+/* 
+    Set text color to white when hovering over button
+    Make background a darker shade of blue when hovering over button
+
+*/
+.nav-link-item:focus {
+    color: white;
+    background-color: rgb(250, 250, 250);
+
 }
 
+
+
+.active-nav-link-item::before{
+    content:"";
+    z-index:-1;
+    left:0em;
+    top:0.5em;
+    border-width:3px;
+    border-style:solid;
+    border-color:rgb(168, 6, 101);
+    position:absolute;
+    border-right-color:transparent;
+    width:110%;
+    height:1.2em;
+    transform:rotate(2deg);
+    opacity:0.5;
+    border-radius:0.35em;
+  }
+  .active-nav-link-item::after{
+    content:"";
+    z-index:-1;
+    left:0.1em;
+    top:0em;
+    border-width:2px;
+    border-style:solid;
+    border-color:rgb(250, 6, 6);
+    border-left-color:transparent;
+    border-top-color:transparent;
+    position:absolute;
+    width:110%;
+    height:1.2em;
+    transform:rotate(-1deg);
+    opacity:0.5;
+    border-radius:0.45em;
+  }
 /* 
     border of animated button
 */

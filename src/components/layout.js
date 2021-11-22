@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
+import { Link } from './link';
 import { useStaticQuery, graphql } from 'gatsby';
 import { 
     container, 
@@ -8,14 +8,17 @@ import {
     navLinkItem,
     navLinkText,
     siteTitle,
+    navLinkHighlightedSpan,
+    avtiveNavLinkItem,
 } from './layout.module.css'
+
 const Layout = ({pageTitle, children }) => {
     const data = useStaticQuery(graphql`
         query MyQuery {
             site {
-            siteMetadata {
-                title
-            }
+                siteMetadata {
+                    title
+                }
             }
         }
     `)
@@ -26,17 +29,30 @@ const Layout = ({pageTitle, children }) => {
             <nav>
                 <ul className={navLinks}>
                     <li className={navLinkItem}>
-                        <Link to="/" className={navLinkText}>
+                        <Link to="/" 
+                        className={navLinkText}
+                        activeStyle={{
+                            textDecoration: 'green underline',
+                        }}
+                        >
                             Home
                         </Link>
                     </li>
                     <li className={navLinkItem}>
-                        <Link to="/about" className={navLinkText}>
-                            About
+                        <Link to="/about" 
+                        className={navLinkText}
+                        activeStyle={{
+                            textDecoration: 'red underline',
+                        }}>
+                            <p><span className={navLinkHighlightedSpan}> About </span>
+                            </p>
                         </Link>
                     </li>
-                    <li className={navLinkItem}>
-                        <Link to="/blog" className={navLinkText}>
+                    <li className={navLinkItem} >
+                        <Link to="/blog" className={navLinkText}
+                        activeStyle={
+                            { textDecoration: 'blue underline' }
+                        }>
                             Blog
                         </Link>
                     </li>
